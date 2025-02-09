@@ -2,6 +2,8 @@ let posX = 0;
 let posY = 0;
 let moveInterval = null;
 let isMoving = false;  // ตัวแปรเช็คสถานะการเคลื่อนไหว
+let audio = new Audio('sound.mp3');  // โหลดเสียง
+let audioPlaying = false;  // ตัวแปรเช็คสถานะการเล่นเสียง
 
 // ฟังก์ชันเริ่มการเคลื่อนที่
 function startMove(direction) {
@@ -19,6 +21,14 @@ function startMove(direction) {
     gif.classList.add('show');       // แสดง GIF
 
     isMoving = true;  // ตั้งค่าสถานะการเคลื่อนไหว
+
+    // เล่นเสียงเมื่อกดปุ่ม
+    if (!audioPlaying) {
+        audio.currentTime = 0;  // ตั้งค่าให้เสียงเริ่มจากต้น
+        audio.loop = true;  // ตั้งให้เสียงวนซ้ำ
+        audio.play();  // เล่นเสียง
+        audioPlaying = true;  // ตั้งสถานะการเล่นเสียงเป็น true
+    }
 }
 
 // ฟังก์ชันหยุดการเคลื่อนที่และเปลี่ยนกลับเป็นรูปภาพ
@@ -34,6 +44,13 @@ function stopMoveAndShowImage() {
     image.classList.add('show');    // แสดงรูปภาพ
 
     isMoving = false;  // ตั้งค่าสถานะการเคลื่อนไหวเป็น false
+
+    // หยุดเสียงเมื่อปล่อยปุ่ม
+    if (audioPlaying) {
+        audio.pause();  // หยุดเสียง
+        audio.currentTime = 0;  // รีเซ็ตตำแหน่งเสียง
+        audioPlaying = false;  // ตั้งสถานะการเล่นเสียงเป็น false
+    }
 }
 
 // ฟังก์ชันการเคลื่อนที่ของ GIF และ รูปภาพ
