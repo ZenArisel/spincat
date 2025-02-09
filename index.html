@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=0.5, maximum-scale=1, user-scalable=no">
+    <title>แมวหมุน</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- รูปภาพ -->
+        <img id="image" src="image.png" alt="รูปภาพ" class="show" />
+        <!-- GIF -->
+        <img id="gif" src="animation.gif" alt="GIF" />
+    </div>
+
+    <div class="keyboard">
+        <div class="row">
+            <button id="upBtn" 
+                    onmousedown="startMove('up')" ontouchstart="startMove('up')"
+                    onmouseup="stopMoveAndShowImage()" ontouchend="stopMoveAndShowImage()">↑</button>
+        </div>
+        <div class="row">
+            <button id="leftBtn" 
+                    onmousedown="startMove('left')" ontouchstart="startMove('left')"
+                    onmouseup="stopMoveAndShowImage()" ontouchend="stopMoveAndShowImage()">←</button>
+            <button id="downBtn" 
+                    onmousedown="startMove('down')" ontouchstart="startMove('down')"
+                    onmouseup="stopMoveAndShowImage()" ontouchend="stopMoveAndShowImage()">↓</button>
+            <button id="rightBtn" 
+                    onmousedown="startMove('right')" ontouchstart="startMove('right')"
+                    onmouseup="stopMoveAndShowImage()" ontouchend="stopMoveAndShowImage()">→</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
