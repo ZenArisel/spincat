@@ -1,26 +1,33 @@
 /* ปิดการเลือกข้อความทั้งหมดในหน้า */
 * {
     user-select: none; /* ป้องกันไม่ให้เลือกข้อความ */
+    box-sizing: border-box; /* ใช้ box-sizing เพื่อให้ขนาดไม่เกินกรอบ */
 }
 
-html, body {
-    height: 100%;
+/* กำหนดพื้นหลังและจัดตำแหน่ง */
+body {
+    background-color: #f0f0f0; /* กำหนดพื้นหลังให้เป็นสีอ่อน */
+    margin: 0;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
+    height: 100vh;
 }
 
+/* กำหนดขนาดของ container */
 .container {
     position: relative;
-    width: 700px; /* เพิ่มขนาดกรอบ */
-    height: 700px; /* เพิ่มขนาดกรอบ */
+    width: 100%;
+    max-width: 700px; /* กำหนดความกว้างสูงสุด */
+    height: 500px; /* ขนาดกรอบ */
     background-color: #ccc;
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden; /* ป้องกันไม่ให้เกินขอบ */
 }
 
+/* ปรับขนาดของรูปภาพและ GIF */
 #image, #gif {
     width: 150px;
     height: auto;
@@ -42,6 +49,7 @@ html, body {
     z-index: 2;
 }
 
+/* ปรับปุ่มและแป้นพิมพ์ */
 .keyboard {
     position: fixed;
     bottom: 30px;
@@ -60,9 +68,9 @@ html, body {
 }
 
 button {
-    width: 60px;
-    height: 60px;
-    font-size: 24px;
+    width: 80px; /* เพิ่มขนาดความกว้าง */
+    height: 80px; /* เพิ่มขนาดความสูง */
+    font-size: 30px; /* เพิ่มขนาดฟอนต์ */
     background-color: #000;
     color: white;
     border: 2px solid #fff;
@@ -90,7 +98,6 @@ button:focus {
 /* Media Queries สำหรับมือถือ */
 @media (max-width: 768px) {
     .container {
-        width: 100%;
         height: 400px; /* ปรับขนาดให้เหมาะสมกับมือถือ */
     }
 
@@ -99,9 +106,9 @@ button:focus {
     }
 
     button {
-        width: 50px;
-        height: 50px;
-        font-size: 20px;
+        width: 70px;  /* เพิ่มขนาดปุ่มให้ใหญ่ขึ้นบนมือถือ */
+        height: 70px;
+        font-size: 28px;  /* เพิ่มขนาดฟอนต์ */
     }
 
     .keyboard {
